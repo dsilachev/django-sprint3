@@ -11,7 +11,10 @@ class Category(models.Model):
     slug = models.SlugField(
         _('Идентификатор'),
         unique=True,
-        help_text=_('Идентификатор страницы для URL; разрешены символы латиницы, цифры, дефис и подчёркивание.')
+        help_text=_(
+            'Идентификатор страницы для URL; разрешены символы латиницы, '
+            'цифры, дефис и подчёркивание.'
+        )
     )
     is_published = models.BooleanField(
         _('Опубликовано'),
@@ -50,7 +53,9 @@ class Post(models.Model):
     text = models.TextField(_('Текст'))
     pub_date = models.DateTimeField(
         _('Дата и время публикации'),
-        help_text=_('Если установить дату и время в будущем — можно делать отложенные публикации.')
+        help_text=_(
+            'Если установить дату и время в будущем — можно делать отложенные публикации.'
+        )
     )
     author = models.ForeignKey(
         User,
