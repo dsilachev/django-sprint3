@@ -19,7 +19,14 @@ class LocationAdmin(admin.ModelAdmin):
 
 @admin.register(Post)
 class PostAdmin(admin.ModelAdmin):
-    list_display = ('title', 'author', 'category', 'location', 'pub_date', 'is_published')
+    list_display = (
+        'title',
+        'author',
+        'category',
+        'location',
+        'pub_date',
+        'is_published'
+    )
     list_filter = ('is_published', 'pub_date', 'category')
     search_fields = ('title', 'text')
     autocomplete_fields = ('author', 'category', 'location')
