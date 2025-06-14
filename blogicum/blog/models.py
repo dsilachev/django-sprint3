@@ -4,7 +4,8 @@ from django.contrib.auth import get_user_model
 
 User = get_user_model()
 
-CHARFIELD_MAX_LENGTH = 256
+MAX_LENGTH_TITLE = 256
+
 
 class PublishedModel(models.Model):
     is_published = models.BooleanField(
@@ -19,7 +20,7 @@ class PublishedModel(models.Model):
 
 
 class Category(PublishedModel):
-    title = models.CharField(_('Заголовок'), max_length=CHARFIELD_MAX_LENGTH)
+    title = models.CharField(_('Заголовок'), max_length=MAX_LENGTH_TITLE)
     description = models.TextField(_('Описание'))
     slug = models.SlugField(
         _('Идентификатор'),
@@ -39,7 +40,7 @@ class Category(PublishedModel):
 
 
 class Location(PublishedModel):
-    name = models.CharField(_('Название места'), max_length=CHARFIELD_MAX_LENGTH)
+    name = models.CharField(_('Название места'), max_length=MAX_LENGTH_TITLE)
 
     class Meta:
         verbose_name = _('местоположение')
@@ -50,7 +51,7 @@ class Location(PublishedModel):
 
 
 class Post(PublishedModel):
-    title = models.CharField(_('Заголовок'), max_length=CHARFIELD_MAX_LENGTH)
+    title = models.CharField(_('Заголовок'), max_length=MAX_LENGTH_TITLE)
     text = models.TextField(_('Текст'))
     pub_date = models.DateTimeField(
         _('Дата и время публикации'),
