@@ -30,9 +30,15 @@ def post_detail(request, id):
 
 
 def category_posts(request, category_slug):
-    category = get_object_or_404(Category, slug=category_slug, is_published=True)
+    category = get_object_or_404(
+        Category,
+        slug=category_slug,
+        is_published=True
+    )
     posts = category.posts.select_related(
-        'author', 'category', 'location'
+        'author',
+        'category',
+        'location'
     ).filter(
         is_published=True,
         pub_date__lte=now()
